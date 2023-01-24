@@ -1,5 +1,10 @@
 # Portlet Development Utilities for HCL Digital Experience
+
 This repository contains Portlet Development Utilities to create pages via the DX Java API as well as a maven archetype to create a new JSR286 portlet. It is available under the Apache License V2.0. 
+
+DX maven archetype to create a new JSR286 portlet: https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/tree/main/dxportlet
+
+Create pages via the DX Java API: https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/tree/main/pageimport
 
 
 ## Support
