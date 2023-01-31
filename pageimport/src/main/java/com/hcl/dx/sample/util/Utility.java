@@ -38,9 +38,11 @@ import com.ibm.portal.ObjectID;
 import com.ibm.portal.admin.Markup;
 import com.ibm.portal.admin.MarkupList;
 import com.ibm.portal.admin.ModifiableMarkupCapable;
+import com.ibm.portal.content.ContentLabel;
 import com.ibm.portal.content.ContentModel;
 import com.ibm.portal.content.ContentModelController;
 import com.ibm.portal.content.ContentNode;
+import com.ibm.portal.content.ContentNodeCopyCreationContext;
 import com.ibm.portal.content.ContentNodeCreationContext;
 import com.ibm.portal.content.ContentPage;
 import com.ibm.portal.content.LayoutContainer;
@@ -49,9 +51,12 @@ import com.ibm.portal.content.LayoutModelController;
 import com.ibm.portal.content.LayoutNode;
 import com.ibm.portal.content.ModifiableLayoutControl;
 import com.ibm.portal.content.ModifiableLayoutNode;
+import com.ibm.portal.content.StaticContentPage;
 import com.ibm.portal.model.MarkupListHome;
 import com.ibm.portal.model.controller.ContentModelControllerHome;
 import com.ibm.portal.model.controller.CreationContextBuilderFactory;
+import com.ibm.portal.model.controller.context.TemplatingCreationContext;
+import com.ibm.portal.model.controller.context.UniqueNameStrategy;
 import com.ibm.portal.portlet.ModifiablePortletEntity;
 import com.ibm.portal.portlet.ModifiablePortletPreferences;
 import com.ibm.portal.portlet.service.PortletServiceHome;
@@ -210,5 +215,136 @@ public class Utility {
 		return pageBean;
 
 	}
+	
+	//Sample method to create a page from template instead - works for labels too
+	public static PageBean createSinglePageFromTemplate(ActionRequest request, ActionResponse response, String parentUniqueName,
+			String friendlyUrl, String pageName, String templatePageUniqueName) {
+
+		PortletServiceHome psh;
+		ContentModelController contentModelController = null;
+		PageBean pageBean = new PageBean(pageName, new Long(1), friendlyUrl, parentUniqueName);
+
+		try {
+			javax.naming.Context ctx = new javax.naming.InitialContext();
+			psh = (PortletServiceHome) ctx
+					.lookup("portletservice/com.ibm.portal.portlet.service.model.ContentModelProvider");
+			ContentModelProvider contentProvider = (ContentModelProvider) psh
+					.getPortletService(ContentModelProvider.class);
+			ContentModel contentModel = contentProvider.getContentModel(request, response);
+			psh = (PortletServiceHome) ctx
+					.lookup("portletservice/com.ibm.portal.portlet.service.model.NavigationModelProvider");
+			NavigationModelProvider navProvider = (NavigationModelProvider) psh
+					.getPortletService(NavigationModelProvider.class);
+			final ContentModelControllerHome home = (ContentModelControllerHome) ctx
+					.lookup(ContentModelControllerHome.JNDI_NAME);
+			contentModelController = home.getContentModelControllerProvider()
+					.createContentModelController(contentModel);
+
+			MarkupListHome markupListHome = (MarkupListHome) ctx.lookup("portal:service/model/MarkupList");
+
+			// parent
+			Locator locator = contentModel.getLocator();
+			
+			ContentNode templatePage = (ContentNode) (locator.findByUniqueName(templatePageUniqueName));
+
+			// obtain creation context builder
+			final CreationContextBuilderFactory creationContextBuilderFactory = CreationContextBuilderFactory
+					.getInstance();
+
+			psh = (PortletServiceHome) ctx
+					.lookup("portletservice/com.ibm.portal.portlet.service.model.PortletModelProvider");
+			PortletModelProvider portletModelProvider = (PortletModelProvider) psh
+					.getPortletService(PortletModelProvider.class);
+			PortletModel model = portletModelProvider.getPortletModel(request, response);
+
+			// portal:uniquename prefix is required for unique name lookup
+			Name uniqueName = new CompositeName("portal:uniquename");
+
+			uniqueName.add("ibm.portal.Web.Content.Viewer.Jsr286");
+
+			ObjectID definition = (ObjectID) ctx.lookup(uniqueName);
+
+			logger.fine("Setup is done for createPages");
+			
+			ContentNode contentParentPage = (ContentNode) (locator.findByUniqueName(parentUniqueName));
+			if (pageBean.getLevel().intValue() > 1) {
+				contentParentPage = (ContentNode) (locator.findByUniqueName(pageBean.getParentPage()));
+
+				System.out.println("Inside level 1: " + pageBean.toString());
+			}
+			
+			if (contentParentPage == null) {
+				// could not find parent
+				logger.fine("createPages could not find parent: " + pageBean.getParentPage());
+			}
+			// do not overwrite existing pages
+			ContentPage pageExists = (ContentPage) (locator.findByUniqueName(pageBean.getPageName()));
+			if (pageExists != null)
+			{
+				return pageBean;
+			}
+
+			ContentNodeCopyCreationContext<ContentNode> origContext = creationContextBuilderFactory.newContentNodeCopyCreationContext(templatePage, contentModel, model, UniqueNameStrategy.NULL,contentParentPage);
+			TemplatingCreationContext templateContext = creationContextBuilderFactory.newTemplatingCreationContext(true);
+			CreationContext creationContext= creationContextBuilderFactory.combine(origContext,templateContext);
+			
+			ContentNode targetPage=null;
+			if(templatePage instanceof StaticContentPage)
+			{
+				targetPage = (ContentNode)contentModelController.create(StaticContentPage.class, creationContext);
+			}
+			else if (templatePage instanceof ContentLabel)
+			{
+				targetPage = (ContentNode)contentModelController.create(ContentLabel.class, creationContext);
+			}
+				
+			// Set page name
+			if (targetPage instanceof ModifiableLocalized) {
+				((ModifiableLocalized) targetPage).setTitle(Locale.ENGLISH, pageBean.getPageName());
+			}
+
+			// Set page markup
+			if (targetPage instanceof ModifiableMarkupCapable) {
+				MarkupList markupList = null;
+				if (markupListHome != null) {
+					markupList = markupListHome.getMarkupListProvider().getMarkupList();
+				}
+				Markup markup = markupList.getByName("html");
+				((ModifiableMarkupCapable) targetPage).addMarkup(markup);
+			}
+
+			// Set page unique name
+			if (targetPage instanceof ModifiableIdentifiable) {
+
+				ModifiableObjectID mOID = ((ModifiableIdentifiable) targetPage).getModifiableObjectID();
+				mOID.setUniqueName(pageBean.getPageName());
+			}
+
+			// friendly URLs
+			String friendlyURL = pageBean.getUrl();
+			if (targetPage instanceof ModifiableMetaDataProvider && friendlyURL != null) {
+
+				ModifiableMetaData modifiableMetaData = ((ModifiableMetaDataProvider) targetPage)
+						.getModifiableMetaData();
+				modifiableMetaData.setValue(com.ibm.portal.resolver.friendly.Constants.FRIENDLY_NAME_KEY, friendlyURL);
+			}
+
+			contentModelController.insert(targetPage, contentParentPage, null);
+			contentModelController.commit();
+			contentModelController.dispose();
+			contentModelController = home.getContentModelControllerProvider()
+					.createContentModelController(contentModel);
+
+		} catch (NamingException | PortletServiceUnavailableException | ModelException ex) {
+			ex.printStackTrace();
+			System.out.println(ex);
+		} finally {
+			contentModelController.dispose();
+		}
+
+		return pageBean;
+
+	}
+
 
 }

@@ -73,11 +73,15 @@ public class MyPortlet extends GenericPortlet {
 
 		String successMessage = (String) request.getPortletSession().getAttribute("Success");
 		request.setAttribute("Success", successMessage);
+		normalView.include(request, response);
+		//all done - remove success
+		request.getPortletSession().removeAttribute("Success");
+		/* Alternative to have a specialized maximized view
 		if (WindowState.NORMAL.equals(request.getWindowState())) {
 			normalView.include(request, response);
 		} else {
 			maximizedView.include(request, response);
-		}
+		}*/
 		logger.exiting(MyPortlet.class.getName(), method);
 	}
 

@@ -9,7 +9,7 @@
 <form action="<portlet:actionURL/>" method="post">
 	<table>
 	  <tr>
-	  	<td>Parent unique name:</td>
+	  	<td>Parent unique name</td>
 	    <td><input type="text" id="parentUniqueName" name="parentUniqueName"></td>
 	  </tr>
 	  <tr>
