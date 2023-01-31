@@ -6,13 +6,13 @@ This is a Custom Archetype which is based on [Maven Portlet Archetype](https://m
 Follow the commands in the below order to generate the Portlet war file.
 
 - Run ```mvn clean install``` to generate the archetype jar.
-
-- Below command be referenced for generating DX archetype.
+- Create a new directory and go into it. (/my_new_war)
+- Reference the command below for generating DX archetype.
     ```
     mvn archetype:generate -DgroupId=com.hcl -DartifactId=dxportlet -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=com.hcl -DarchetypeArtifactId=dxarchetype -DarchetypeVersion=1.0-SNAPSHOT
     ```
-
-- Once the archetype is build successfully run, ```mvn clean install``` to generate the DX Portlet war file.
+- Once the archetype is successfully build, run ```mvn package``` to generate the DX Portlet war file.
+This will generate war file for you to install. You can find the war file under a path similar to this: /my_new_war/dxportlet/target.
 
 # Update DX with new generated portlet
 
