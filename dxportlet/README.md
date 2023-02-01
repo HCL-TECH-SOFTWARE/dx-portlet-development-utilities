@@ -11,8 +11,7 @@ Follow the commands in the below order to generate the Portlet war file.
     ```
     mvn archetype:generate -DgroupId=com.hcl -DartifactId=dxportlet -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=com.hcl -DarchetypeArtifactId=dxarchetype -DarchetypeVersion=1.0-SNAPSHOT
     ```
-- Once the archetype is successfully build, run ```mvn package``` to generate the DX Portlet war file.
-This will generate war file for you to install. You can find the war file under a path similar to this: /my_new_war/dxportlet/target.
+- Once the archetype is successfully build, go into the subdirectory that matches the ArtifactoryID that was used. Run  mvn package to generate the DX Portlet war file. This will generate war file for you to install. You can find the war file under a path similar to this: /my_new_war/dxportlet/target.
 
 # Update DX with new generated portlet
 
