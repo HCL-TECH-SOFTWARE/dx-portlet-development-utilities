@@ -1,5 +1,5 @@
 # DX Portlet Archetype
-This is a Custom Archetype which is based on [Maven Portlet Archetype](https://maven.apache.org/archetypes/maven-archetype-portlet/) and is used for creating a HCL DX JSP Demo Portlet on a Microsoft Visual Studio IDE. 
+This is a Custom Archetype which is based on [Maven Portlet Archetype](https://maven.apache.org/archetypes/maven-archetype-portlet/) and can be used for creating a HCL DX JSP Demo Portlet on a Microsoft Visual Studio IDE. 
 With the Custom Archetype it is possible to generate a ready for use HCL DX JSP Demo Portlet.
 
 The sample can be used to show up a whole development lifecycle of an HCL DX JSP Demo Portlet.
