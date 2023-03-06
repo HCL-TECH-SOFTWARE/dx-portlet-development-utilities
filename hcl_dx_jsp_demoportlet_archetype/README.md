@@ -16,19 +16,25 @@ The sample can be used to show up a whole development lifecycle of an HCL DX JSP
 - HCL DXClient needs to be installed on the local system 
   (For details please check: https://help.hcltechsw.com/digital-experience/9.5/containerization/dxclient.html)
 
-# Build and install the DX archetype
-Follow the commands in the below order to generate the Portlet war file.
+# install the DX archetype
+Follow the commands in the below order to install the archetype.
 
-1) Run ```mvn clean install``` to generate the archetype jar.
+1) Go into the hcl_dx_jsp_demoportlet_archetype folder
+2) Run ```mvn clean install``` to install the archetype jar.
 
-2) Below command be referenced for generating DX archetype.
+# create a HCL JSP Demo Portlet sample project
+As soon as the new archetype is installed a new HCL JSP Demo Portlet can be created as following: 
+1) Below command be referenced as an example for generating a HCL DX JSP Demo Portlet project as soon as the archetype is installed:
     ```
     mvn org.apache.maven.plugins:maven-archetype-plugin:3.1.2:generate -DarchetypeArtifactId="hcl_dx_jsp_demoportlet_archetype" -DarchetypeGroupId="com.hcl.dx.demo" -DarchetypeVersion="1.0" -DgroupId="com.hcl.dx" -DartifactId="jspdemoportlet"
     ```
+
+You may want to change the -DgroupId and/or -DartifactId parameter values for your needs. 
+
 # Build the WAR-File (Deployment artifact)
-1) Go into the subdirectory that matches the ArtifactoryID that was used. 
+1) Go into the project directory
 2) Run  ```mvn clean package``` to generate the HCL DX JSP Demo Portlet war file. 
-   You can find the war file under a path similar to this: ```/my_new_war_root/{ArtifactoryID}/target/jspdemoportlet-1.0.war```.
+   You will find the war file under a path similar to this: ```/<project-folder>/target/jspdemoportlet-1.0.war```.
 
 # Deploy/Update or Undeploy the Portlet using DXClient
 The Custom Archetype already include sample XML files to deploy/update and undeploy the HCL DX JSP Demo Portlet on a local HCL-DX container image. 
