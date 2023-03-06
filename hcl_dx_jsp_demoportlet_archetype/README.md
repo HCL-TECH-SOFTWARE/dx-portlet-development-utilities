@@ -16,13 +16,13 @@ The sample can be used to show up a whole development lifecycle of an HCL DX JSP
 - HCL DXClient needs to be installed on the local system 
   (For details please check: https://help.hcltechsw.com/digital-experience/9.5/containerization/dxclient.html)
 
-# install the DX archetype
+# Install the DX archetype
 Follow the commands in the below order to install the archetype.
 
 1) Go into the hcl_dx_jsp_demoportlet_archetype folder
 2) Run ```mvn clean install``` to install the archetype jar.
 
-# create a HCL JSP Demo Portlet sample project
+# Create a HCL JSP Demo Portlet sample project
 As soon as the new archetype is installed a new HCL JSP Demo Portlet can be created as following: 
 1) Below command be referenced as an example for generating a HCL DX JSP Demo Portlet project as soon as the archetype is installed:
     ```
@@ -37,14 +37,13 @@ You may want to change the -DgroupId and/or -DartifactId parameter values for yo
    You will find the war file under a path similar to this: ```/<project-folder>/target/jspdemoportlet-1.0.war```.
 
 # Deploy/Update or Undeploy the Portlet using DXClient
-The Custom Archetype already include sample XML files to deploy/update and undeploy the HCL DX JSP Demo Portlet on a local HCL-DX container image. 
-When using Microsoft Visual Studio Code IDE you will also find two tasks that can be used for deployment/update(task: deploy_OR_Update_Portlet) and undeployment(task: undeploy_Portlet). 
+The Custom Archetype already include sample XML files to deploy/update and undeploy the HCL DX JSP Demo Portlet on a local HCL-DX server and/or local HCL-DX container image. When using Microsoft Visual Studio Code IDE you will also find two tasks that can be used for deployment/update(task: deploy_OR_Update_Portlet) and undeployment(task: undeploy_Portlet). 
 
 If a manual deployment or update of the portlet is needed the following dxclient command can be used:
-dxclient deploy-portlet -hostname <hostname> -dxPort <port> -dxConnectUsername <user> -dxConnectPassword <password> -dxUsername <user> -dxPassword <password> -warFile ${workspaceFolder}/target/jspdemoportlet-1.0.war  -xmlFile <workspaceFolder>/scripts/DeployPortlet.xml
+dxclient deploy-portlet -hostname <hostname> -dxPort <port> -dxConnectUsername <user> -dxConnectPassword <password> -dxUsername <user> -dxPassword <password> -warFile <workspaceFolder>/target/jspdemoportlet-1.0.war  -xmlFile <workspaceFolder>/scripts/DeployPortlet.xml
 
 If a manual undeployment of the portlet is needed the following command can be used:
-dxclient undeploy-portlet -hostname <hostname> -dxPort <port> -dxConnectUsername <user> -dxConnectPassword <password> -dxUsername <user> -dxPassword <password> -xmlFile ${workspaceFolder}/scripts/UndeployPortlet.xml
+dxclient undeploy-portlet -hostname <hostname> -dxPort <port> -dxConnectUsername <user> -dxConnectPassword <password> -dxUsername <user> -dxPassword <password> -xmlFile <workspaceFolder>/scripts/UndeployPortlet.xml
 
 # Test the generated Portlet
 As soon as the HCL DX JSP Demo Portlet is deployed the following steps are needed to test the portlet:
