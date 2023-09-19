@@ -5,7 +5,7 @@
     type="update">
     <portal action="locate">
         <!-- uid must match uid attribute of portlet-app in portlet.xml -->
-       <web-app action="delete" uid="com.hcl.dx.demo.JSPDemoPortlet.a7f9d0d758.webmod">
+       <web-app action="delete" uid="${groupId}.${artifactId}.a7f9d0d758.webmod">
        </web-app>
     </portal>
 </request>

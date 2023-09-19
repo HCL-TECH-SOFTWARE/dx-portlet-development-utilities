@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" id="com.hcl.dx.demo.JSPDemoPortlet.a7f9d0d758">
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" 
+	id="${groupId}.${artifactId}.a7f9d0d758">
 	<portlet>
-		<portlet-name>JSPDemoPortlet</portlet-name>
-		<display-name>JSPDemoPortlet</display-name>
-		<display-name xml:lang="en">JSPDemoPortlet</display-name>
+		<portlet-name>${artifactId}</portlet-name>
+		<display-name>${artifactId}</display-name>
+		<display-name xml:lang="en">${artifactId}</display-name>
 		<portlet-class>com.hcl.dx.demo.JSPDemoPortlet</portlet-class>
 		<init-param>
 			<name>wps.markup</name>
@@ -18,13 +21,13 @@
 		<supported-locale>en</supported-locale>
 		<resource-bundle>com.hcl.dx.demo.nl.JSPDemoPortletResource</resource-bundle>
 		<portlet-info>
-			<title>JSPDemoPortlet</title>
-			<short-title>JSPDemoPortlet</short-title>
-			<keywords>JSPDemoPortlet</keywords>
+			<title>${artifactId}</title>
+			<short-title>${artifactId}</short-title>
+			<keywords>${artifactId}</keywords>
 		</portlet-info>
 		<portlet-preferences>
 			<preferences-validator>com.hcl.dx.demo.demoportlet.JSPDemoPortletPreferencesValidator</preferences-validator>
 		</portlet-preferences>
 	</portlet>
-	<default-namespace>http://JSPDemoPortlet/</default-namespace>
+	<default-namespace>http://${artifactId}/</default-namespace>
 </portlet-app>
