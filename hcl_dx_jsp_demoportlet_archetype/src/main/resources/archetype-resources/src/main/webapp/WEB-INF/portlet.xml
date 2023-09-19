@@ -26,7 +26,7 @@
 			<keywords>${artifactId}</keywords>
 		</portlet-info>
 		<portlet-preferences>
-			<preferences-validator>com.hcl.dx.demo.demoportlet.JSPDemoPortletPreferencesValidator</preferences-validator>
+			<preferences-validator>com.hcl.dx.demo.JSPDemoPortletPreferencesValidator</preferences-validator>
 		</portlet-preferences>
 	</portlet>
 	<default-namespace>http://${artifactId}/</default-namespace>
