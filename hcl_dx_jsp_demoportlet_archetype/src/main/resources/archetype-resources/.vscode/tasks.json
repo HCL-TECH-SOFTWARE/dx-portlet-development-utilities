@@ -6,13 +6,13 @@
         {
             "label": "deploy_OR_Update_Portlet",
             "type": "shell",
-            "command": "dxclient deploy-portlet -hostname localhost -dxPort 10041 -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -warFile ${workspaceFolder}/target/jspdemoportlet-1.0.war  -xmlFile ${workspaceFolder}/scripts/DeployPortlet.xml",
+            "command": "dxclient deploy-portlet -hostname localhost -dxPort 10041 -dxProtocol https -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -warFile ${workspaceFolder}/target/${artifactId}-1.0.war  -xmlFile ${workspaceFolder}/scripts/DeployPortlet.xml",
             "problemMatcher": []
         },
         {
             "label": "undeploy_Portlet",
             "type": "shell",
-            "command": "dxclient undeploy-portlet -hostname localhost -dxPort 10041 -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -xmlFile ${workspaceFolder}/scripts/UndeployPortlet.xml",
+            "command": "dxclient undeploy-portlet -hostname localhost -dxPort 10041 -dxProtocol https -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -xmlFile ${workspaceFolder}/scripts/UndeployPortlet.xml",
             "problemMatcher": []
         }
     ]
