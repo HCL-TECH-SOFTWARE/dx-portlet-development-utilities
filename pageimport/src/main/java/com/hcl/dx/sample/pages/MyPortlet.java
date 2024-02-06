@@ -40,14 +40,34 @@ public class MyPortlet extends GenericPortlet {
 		String method = "processAction";
 		logger.entering(MyPortlet.class.getName(), method);
 		
-		String successMessage = "";
-		PageBean pageBean = Utility.createSinglePage(request, response, request.getParameter("parentUniqueName"),
-				request.getParameter("contentUUID"), request.getParameter("friendlyUrl"),
-				request.getParameter("pageName"));
-		successMessage = "Successfully created " + pageBean.getPageName();
+		String resultMessage = "";
+		
+		PageBean pageBean = null;
+		
+		if (request.getParameter("templateUniqueName") != null && !request.getParameter("templateUniqueName").isEmpty()) {
+			pageBean = Utility.createSinglePageFromTemplate(request, response, request.getParameter("parentUniqueName"),
+					request.getParameter("friendlyUrl"),
+					request.getParameter("pageName"), request.getParameter("templateUniqueName"));
+		}
+		else
+		{
+			pageBean = Utility.createSinglePage(request, response, request.getParameter("parentUniqueName"),
+					request.getParameter("contentUUID"), request.getParameter("friendlyUrl"),
+					request.getParameter("pageName"));
+		}
+		if(pageBean.isSuccess())
+		{
+			resultMessage = "Successfully created " + pageBean.getPageName();
+			request.getPortletSession().setAttribute("Message",resultMessage);
+		}
+		else
+		{
+			resultMessage = "Failed to create due to error: " + pageBean.getErrorMessage();
+			request.getPortletSession().setAttribute("Message", resultMessage);
+		}
 		
 
-		request.getPortletSession().setAttribute("Success",successMessage);
+
 		logger.exiting(MyPortlet.class.getName(), method);
 
 	}
@@ -71,11 +91,11 @@ public class MyPortlet extends GenericPortlet {
 			return;
 		}
 
-		String successMessage = (String) request.getPortletSession().getAttribute("Success");
-		request.setAttribute("Success", successMessage);
+		String resultMessage = (String) request.getPortletSession().getAttribute("Message");
+		request.setAttribute("Message", resultMessage);
 		normalView.include(request, response);
 		//all done - remove success
-		request.getPortletSession().removeAttribute("Success");
+		request.getPortletSession().removeAttribute("Message");
 		/* Alternative to have a specialized maximized view
 		if (WindowState.NORMAL.equals(request.getWindowState())) {
 			normalView.include(request, response);

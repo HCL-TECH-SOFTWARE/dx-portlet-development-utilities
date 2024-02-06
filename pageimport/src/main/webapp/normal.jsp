@@ -13,7 +13,7 @@
 	    <td><input type="text" id="parentUniqueName" name="parentUniqueName"></td>
 	  </tr>
 	  <tr>
-	    <td>Content uuid</td>
+	    <td>Content uuid*</td>
 	    <td><input type="text" id="contentUUID" name="contentUUID"></td>
 	  </tr>
 	  <tr>
@@ -24,23 +24,28 @@
 	    <td>Friendly URL</td>
 	    <td><input type="text" id="friendlyUrl" name="friendlyUrl"></td>
 	  </tr>
+	  <tr>
+	    <td>Page Template Unique name*</td>
+	    <td><input type="text" id="templateUniqueName" name="templateUniqueName"></td>
+	  </tr>
 	</table>
 	<input type="hidden" name="actionType" id="actionType" value="single-page">
 	<input type="submit" type="submit" class="button" value="Click to generate a page">
 </form>
 
-
+<div>* denotes optional items.</div>
 
 <%
 
-String successMessage = (String)request.getAttribute("Success");
-if(successMessage!=null)
+String resultMessage = (String)request.getAttribute("Message");
+if(resultMessage!=null)
 {
 %>
-<div><h5><%=successMessage%></h5></div>
+<div><h5><%=resultMessage%></h5></div>
 <%
 }
 %>
+
 
 <style>
 .button {

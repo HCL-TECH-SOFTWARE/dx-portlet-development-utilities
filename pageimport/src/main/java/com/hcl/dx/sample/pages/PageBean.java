@@ -71,4 +71,24 @@ public class PageBean {
 	public void setParentPage(String parentPage) {
 		this.parentPage = parentPage;
 	}
+	
+	private boolean success = true;
+
+	public boolean isSuccess() {
+		return success;
+	}
+
+	public void setSuccess(boolean success) {
+		this.success = success;
+	}
+	
+	private String errorMessage;
+	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+	
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
 }

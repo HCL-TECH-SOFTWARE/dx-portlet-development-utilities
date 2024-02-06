@@ -134,11 +134,19 @@ public class Utility {
 			if (contentParentPage == null) {
 				// could not find parent
 				logger.fine("createPages could not find parent: " + pageBean.getParentPage());
+				pageBean.setSuccess(false);
+				pageBean.setErrorMessage("Parent not found: "+pageBean.getParentPage());
+
+				return pageBean;
+
 			}
 			// do not overwrite existing pages
 			ContentPage pageExists = (ContentPage) (locator.findByUniqueName(pageBean.getPageName()));
 			if (pageExists != null)
 			{
+				pageBean.setSuccess(false);
+				pageBean.setErrorMessage("Page with that unique name already exists: "+pageBean.getPageName());
+
 				return pageBean;
 			}
 
@@ -211,6 +219,8 @@ public class Utility {
 		} catch (NamingException | PortletServiceUnavailableException | ModelException ex) {
 			ex.printStackTrace();
 			System.out.println(ex);
+			pageBean.setSuccess(false);
+			pageBean.setErrorMessage(ex.getMessage());
 		} finally {
 			contentModelController.dispose();
 		}
@@ -249,6 +259,12 @@ public class Utility {
 			Locator locator = contentModel.getLocator();
 			
 			ContentNode templatePage = (ContentNode) (locator.findByUniqueName(templatePageUniqueName));
+			if (templatePage == null) {
+				pageBean.setSuccess(false);
+				pageBean.setErrorMessage("Template page not found: " + templatePageUniqueName);
+
+				return pageBean;
+			}
 
 			// obtain creation context builder
 			final CreationContextBuilderFactory creationContextBuilderFactory = CreationContextBuilderFactory
@@ -279,11 +295,18 @@ public class Utility {
 			if (contentParentPage == null) {
 				// could not find parent
 				logger.fine("createPages could not find parent: " + pageBean.getParentPage());
+				pageBean.setSuccess(false);
+				pageBean.setErrorMessage("Parent not found: "+pageBean.getParentPage());
+
+				return pageBean;
 			}
 			// do not overwrite existing pages
 			ContentPage pageExists = (ContentPage) (locator.findByUniqueName(pageBean.getPageName()));
 			if (pageExists != null)
 			{
+				pageBean.setSuccess(false);
+				pageBean.setErrorMessage("Page with that unique name already exists: "+pageBean.getPageName());
+
 				return pageBean;
 			}
 
@@ -341,6 +364,8 @@ public class Utility {
 		} catch (NamingException | PortletServiceUnavailableException | ModelException ex) {
 			ex.printStackTrace();
 			System.out.println(ex);
+			pageBean.setSuccess(false);
+			pageBean.setErrorMessage(ex.getMessage());
 		} finally {
 			contentModelController.dispose();
 		}
