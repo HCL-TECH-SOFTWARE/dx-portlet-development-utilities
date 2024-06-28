@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.hcl.dx.demo</groupId>
-  <artifactId>hcl_dx_jsp_demoportlet_archetype</artifactId>
+  <artifactId>hcl_dx_jsf_demoportlet_archetype</artifactId>
   <version>1.0</version>
   <packaging>maven-archetype</packaging>
 
-  <name>Archetype - HCL DX JSP Demo Portlet</name>
-  <description>An example to develop an HCL Digital Experience JSP Demo Portlet</description>
+  <name>Archetype - HCL DX JSF Demo Portlet</name>
+  <description>An example to develop an HCL Digital Experience JSF Demo Portlet</description>
   <url>https://www.hcltechsw.com/dx</url>
 
   <licenses>
@@ -35,6 +35,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
   <build>
     <extensions>
       <extension>
@@ -68,4 +69,5 @@
       </plugins>  
     </pluginManagement>
   </build>
+
 </project>
