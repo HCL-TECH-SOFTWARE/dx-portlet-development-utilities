@@ -1,7 +1,7 @@
 <archetype-descriptor
         xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
-        name="hcl_dx_jsp_demoportlet_archetype">
+        name="hcl_dx_jsf_demoportlet_archetype">
     <fileSets>
         <fileSet>
             <directory>src/main/java</directory>
