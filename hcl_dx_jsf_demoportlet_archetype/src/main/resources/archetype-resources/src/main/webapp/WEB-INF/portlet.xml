@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" id="${groupId}.${artifactId}.2a6f118ad8">
+	<portlet>
+		<portlet-name>${artifactId}</portlet-name>
+		<display-name>${artifactId}</display-name>
+		<display-name xml:lang="en">${artifactId}</display-name>
+		<portlet-class>com.ibm.faces20.portlet.FacesPortlet</portlet-class>
+		<init-param>
+			<name>com.ibm.faces.portlet.page.view</name>
+			<value>/JSFDemoPortletView.xhtml</value>
+		</init-param>
+		<init-param>
+			<name>wps.markup</name>
+			<value>html</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<supported-locale>de</supported-locale>
+		<resource-bundle>com.hcl.jsfdemoportlet.nl.JSFDemoPortletResource</resource-bundle>
+		<portlet-info>
+			<title>${artifactId}</title>
+			<short-title>${artifactId}</short-title>
+			<keywords>${artifactId}</keywords>
+		</portlet-info>
+	</portlet>
+	<filter>
+		<filter-name>DataHandlerFilter</filter-name>
+		<filter-class>com.ibm.faces20.portlet.handlers.DataHandlerFilter</filter-class>
+		<lifecycle>EVENT_PHASE</lifecycle>
+		<lifecycle>RESOURCE_PHASE</lifecycle>
+	</filter>
+	<filter-mapping>
+		<filter-name>DataHandlerFilter</filter-name>
+		<portlet-name>${artifactId}</portlet-name>
+	</filter-mapping>
+	<default-namespace>http://${artifactId}/</default-namespace>
+</portlet-app>
