@@ -1,0 +1,19 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "deploy_OR_Update_Portlet",
+            "type": "shell",
+            "command": "dxclient deploy-portlet -hostname localhost -dxPort 10041 -dxProtocol https -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -warFile ${workspaceFolder}/target/${artifactId}-${version}.war  -xmlFile ${workspaceFolder}/scripts/DeployPortlet.xml",
+            "problemMatcher": []
+        },
+        {
+            "label": "undeploy_Portlet",
+            "type": "shell",
+            "command": "dxclient undeploy-portlet -hostname localhost -dxPort 10041 -dxProtocol https -dxConnectUsername wpsadmin -dxConnectPassword wpsadmin -dxUsername wpsadmin -dxPassword wpsadmin -xmlFile ${workspaceFolder}/scripts/UndeployPortlet.xml",
+            "problemMatcher": []
+        }
+    ]
+}

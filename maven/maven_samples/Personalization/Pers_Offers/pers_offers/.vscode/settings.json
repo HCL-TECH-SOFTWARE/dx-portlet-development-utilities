@@ -1,0 +1,12 @@
+{
+    "java.configuration.updateBuildConfiguration": "disabled",
+    "java.jdt.ls.java.home": "C:/IBM/WebSphere/AppServer/java/8.0",
+    "java.configuration.runtimes": [
+    {
+        "default": true,
+        "name": "JavaSE-1.8",
+        "path": "C:/IBM/WebSphere/AppServer/java/8.0",
+    }    
+    ]
+}
+

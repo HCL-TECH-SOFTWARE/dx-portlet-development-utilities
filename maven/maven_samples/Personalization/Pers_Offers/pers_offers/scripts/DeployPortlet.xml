@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd"
+    type="update"
+    create-oids="true">
+    <portal action="locate">
+        <!-- Sample JSR 286 portlet to create or update a portlet-->
+        <!-- The uid must match uid attribute of portlet-app in portlet.xml inside the war file appended with "webmod" -->
+        <web-app action="update" active="true" domain="rel" uid="com.ibm.pers_offers.Pers_OffersPortlet.a7f9d1d758.webmod">
+         <!-- Below url path will be replaced with the generated URL by DXClient after uploading the war file to remote server -->
+           <url>file:///localhost/HCL/pers_offers-1.0-SNAPSHOT.war</url>
+	   <!--url>file://localhost/$user_install_root$/PortalServer/deployed/archive/com.hcl.dx.demo.JSPDemoPortlet.webmod/jspdemoportlet-1.0.war</url-->
+       <!-- Replace the context root and display value below with your web application context root -->
+            <context-root>/wps/pers_offers</context-root>
+            <display-name>pers_offers</display-name>
+            <!-- The uid must match uid attribute of concrete-portlet-app in portlet.xml. -->
+           <portlet-app action="update" active="true" uid="com.ibm.pers_offers.Pers_OffersPortlet.a7f9d1d758">
+              <access-control externalized="false" owner="uid=wpsadmin,o=defaultWIMFileBasedRealm" private="false"/>
+              <!-- The name attribute must match content of portlet-name subtag  of concrete-portlet in portlet.xml. -->
+	            <portlet action="update" active="true" objectid="pers_offers" name="Pers_Offers" uniquename="Pers Offers" /> 
+            </portlet-app>
+        </web-app>
+    </portal>
+</request>
+

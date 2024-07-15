@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd"
+    type="update">
+    <portal action="locate">
+        <!-- uid must match uid attribute of portlet-app in portlet.xml -->
+       <web-app action="delete" uid="${groupId}.${artifactId}.a7f9d0d758.webmod">
+       </web-app>
+    </portal>
+</request>
+
