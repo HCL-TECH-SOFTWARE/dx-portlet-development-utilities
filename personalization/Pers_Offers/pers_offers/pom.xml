@@ -51,15 +51,6 @@
       <systemPath>
         ${project.basedir}/dependencies/pznruntime.jar
       </systemPath>
-    </dependency> 
-    <dependency>
-    <groupId>com.ibm.ws.ejb</groupId>
-      <artifactId>ejb-thinclient</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>
-        ${project.basedir}/dependencies/com.ibm.ws.ejb.thinclient_9.0.jar
-      </systemPath>      
     </dependency>         
   </dependencies>
   <build>
