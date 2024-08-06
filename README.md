@@ -9,10 +9,6 @@ This repository contains Portlet Development Utilities to create pages via the D
 [Extended Custom maven archetype to create a new JSR286 JSF portlet for DX with dxclient deployment and Visual Studio extensions](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/tree/main/hcl_dx_jsf_demoportlet_archetype)  
 [Create pages via the DX Java API](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/tree/main/pageimport)  
 
-## Microsoft Visual Studio Code Maven Samples
-
-[Pesonalization Sample (Pers_Offers)](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/tree/main/personalization/Pers_Offers)
-
 ## Education
 
 Learn more details on these utilities on HCLSoftware U learning materials. 
