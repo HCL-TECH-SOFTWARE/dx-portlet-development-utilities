@@ -1,18 +1,18 @@
 # Page Creation
 
-This project contains a [Java utility](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/blob/main/pageimport/src/main/java/com/hcl/dx/sample/util/Utility.java) to create a single page using a default or by selecting an existing page template. The project gives an example source code that shows how to use the Controller and Model SPI calls related to WCM, for which the API calls will be handled inside of a JSP JSCR286 portlet that provides the graphical user interface.  
+This project contains a [Java utility](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/blob/main/pageimport/src/main/java/com/hcl/dx/sample/util/Utility.java) to create a single page using a default or by selecting an existing page template. The project gives an example source code that shows how to use the Controller and Model SPI calls related to WCM, for which the API calls will be handled inside of a JSP JSR 286 portlet that provides the graphical user interface.  
 
 It requires the parent page unique name under which the new page needs to be created. You may find the unique name under the Manage Pages portlets, e.g. shown here for parentPage.
-You need to provide the page name and friendly URL for your new page, and then there are two samples, explained here.
+You need to provide the page name and friendly URL for your new page, and then there are two sample options, explained here.
 
 ## Utility Features
 
 ### Create new page with Web Content Viewer configured to a content sample
 
-If you provide the Content UUID, it will create a page based on the default page template which has a Web Content Viewer portlet deployed. It will set this portlet with your content you provided.
+If you provide the Content UUID, the portlet will create a page based on the default page template and add a Web Content Viewer portlet. It will configure the content viewer portlet with the content you provided.
 Follow these steps to try this.
 
-1. Find out a valid UUID in your environment.  
+1. Find out a valid content UUID in your environment.  
     a) In the Practitioner Studio navigate to **Web Content > WebContent Composer > Web Content > Content > Articles > Sample Article**  
     b) Copy the UUID value  
     ![Copy UUID](./screenshots/copy_UUID.ping.png)  
