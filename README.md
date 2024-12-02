@@ -1,4 +1,4 @@
-Maven# Portlet Development Utilities for HCL Digital Experience
+# Portlet Development Utilities for HCL Digital Experience
 
 This repository contains custom Maven archetypes to create new JSP or JSF JSR286 portlets in IDEs, like Visual Studio Code or Eclipse more easily, by using the Maven lifecycle. The repository is available under the Apache License V2.0.  
 
