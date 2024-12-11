@@ -22,9 +22,9 @@ Maven Archetypes can be easily used within IDEs like Visual Studio Code, Eclipse
 
 ## Maven Archetypes
 
-[Custom Maven archetype to create a new generic JSR286 portlet for DX](./hcl_dx_jsp_demoportlet_generic_archetype)  
-[Extended custom Maven archetype to create a new JSR286 JSP portlet for DX with dxclient deployment and Visual Studio extensions](./hcl_dx_jsp_demoportlet_archetype)  
-[Extended custom Maven archetype to create a new JSR286 JSF portlet for DX with dxclient deployment and Visual Studio extensions](./hcl_dx_jsf_demoportlet_archetype)  
+[Basic custom Maven archetype to create a new generic JSR286 portlet for DX.](./hcl_dx_jsp_demoportlet_generic_archetype)  
+[Advanced custom Maven archetype to create a new JSR286 JSP portlet for DX with dxclient deployment and Visual Studio extensions (preferred for JSP development).](./hcl_dx_jsp_demoportlet_archetype)  
+[Advanced custom Maven archetype to create a new JSR286 JSF portlet for DX with dxclient deployment and Visual Studio extensions (preferred for JSF development).](./hcl_dx_jsf_demoportlet_archetype)  
 
 ## Java page creation utility
 
