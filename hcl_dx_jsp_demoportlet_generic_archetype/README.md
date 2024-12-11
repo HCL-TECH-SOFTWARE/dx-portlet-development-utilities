@@ -11,7 +11,7 @@ Follow the commands in the below order to generate the Portlet war file.
 - Reference the command below for generating DX archetype.  
 
    ``` cmd
-   mvn archetype:generate -DgroupId=com.hcl.dx.demo -DartifactId=dxportlet -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=com.hcl.dx.demo -DarchetypeArtifactId=dxarchetype -DarchetypeVersion=1.0-SNAPSHOT
+   mvn archetype:generate -DgroupId=com.hcl.dx.demo -DartifactId=hcl_dx_jsp_demoportlet_generic_archetype -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=com.hcl.dx.demo -DarchetypeArtifactId=dxarchetype -DarchetypeVersion=1.0-SNAPSHOT
    ```
 
 - Once the archetype is successfully build, go into the subdirectory that matches the ArtifactoryID that was used. Run  ```mvn clean package``` to generate the DX Portlet war file. This will generate war file for you to install. You can find the war file under a path similar to this: ```/my_new_war_root/{ArtifactoryID}/target```.
@@ -25,3 +25,13 @@ Once the war file is generated successfully, follow the below scenario to test i
 - Choose the generated portlet war file to install.
 
 Apply the generated portlet to either a new page or an existing page.
+
+## Screenshots
+
+### A sample Portlet created from that archetype
+
+![Sample screenshot](./screenshots/sample.png)
+
+### Sample Project in Microsoft Visual Studio Code
+
+![IDE sample](./screenshots/IDE_sample.png)  
