@@ -12,7 +12,7 @@ You need to provide the page name and friendly URL for your new page, and then t
 If you provide the Content UUID, it will create a page based on the default page template which has a Web Content Viewer portlet deployed. It will set this portlet with your content you provided.
 Follow these steps to try this.
 
-1. Find out a valid UUID in your environment.  
+1. Find out a valid content UUID in your environment.  
     a) In the Practitioner Studio navigate to **Web Content > WebContent Composer > Web Content > Content > Articles > Sample Article**  
     b) Copy the UUID value  
     ![Copy UUID](./screenshots/copy_UUID.ping.png)  
