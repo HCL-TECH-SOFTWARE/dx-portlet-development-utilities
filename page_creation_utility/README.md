@@ -1,6 +1,6 @@
 # Page Creation
 
-This project contains a [Java utility](https://github.com/HCL-TECH-SOFTWARE/dx-portlet-development-utilities/blob/main/pageimport/src/main/java/com/hcl/dx/sample/util/Utility.java) to create a single page using a default or by selecting an existing page template. The project gives an example source code that shows how to use the Controller and Model SPI calls related to WCM, for which the API calls will be handled inside of a JSP JSCR286 portlet that provides the graphical user interface.  
+This project contains a Java utility to create a single page using a default template or by selecting an existing page template. The project gives example source code that shows how to use the Controller and Model SPI calls related to WCM, for which the API calls will be handled inside of a JSP JSR286 portlet that provides the graphical user interface.  
 
 It requires the parent page unique name under which the new page needs to be created. You may find the unique name under the Manage Pages portlets, e.g. shown here for parentPage.
 You need to provide the page name and friendly URL for your new page, and then there are two samples, explained here.
