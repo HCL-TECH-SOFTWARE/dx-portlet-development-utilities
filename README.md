@@ -28,7 +28,7 @@ Maven Archetypes can be easily used within IDEs like Visual Studio Code, Eclipse
 
 ## Java page creation utility
 
-[A Java utiltiy (source-code sample) with corresponding Java Portlet that allows to create pages via the DX Java SPI's and API's](./page_creation_utility)  
+[A Java utilitiy (source-code sample) with corresponding Java Portlet that allows to create pages via the DX Java SPI's and API's](./page_creation_utility)  
 
 ## Product Documentation - Help Center
 
