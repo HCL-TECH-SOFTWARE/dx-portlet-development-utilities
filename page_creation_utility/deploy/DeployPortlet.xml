@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ =================================================================
+*
+* Copyright 2022 HCL America, Inc.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* 
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*
+ =================================================================
+-->
+
+<request
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="PortalConfig_8.5.0.xsd"
+    type="update"
+    create-oids="true">
+    <portal action="locate">
+        <!-- Sample JSR 286 portlet to create or update a portlet-->
+        <!-- The uid must match uid attribute of portlet-app in portlet.xml inside the war file appended with "webmod" -->
+        <web-app action="update" active="true" domain="rel" uid="poc.pages.app.webmod">
+         <!-- Below url path will be replaced with the generated URL by DXClient after uploading the war file to remote server -->
+           <url>file:///$server_root$/base/com.hcl.dx.sample.pages.myportlet/installableApps/page_creation_utility-1.0-SNAPSHOT.war</url>
+	   <!--url>file://localhost/$user_install_root$/PortalServer/deployed/archive/com.hcl.dx.demo.JSPDemoPortlet.webmod/jspdemoportlet-1.0.war</url-->
+       <!-- Replace the context root and display value below with your web application context root -->
+            <context-root>/wps/pageimportsample</context-root>
+            <display-name>Page Import Sample</display-name>
+            <!-- The uid must match uid attribute of concrete-portlet-app in portlet.xml. -->
+           <portlet-app action="update" active="true" uid="poc.pages.app">
+              <access-control externalized="false" owner="uid=wpsadmin,o=defaultWIMFileBasedRealm" private="false"/>
+              <!-- The name attribute must match content of portlet-name subtag  of concrete-portlet in portlet.xml. -->
+	            <portlet action="update" active="true" objectid="Page Creation Portlet" name="Page Creation Portlet" uniquename="com.hcl.dx.sample.pages.PageCreationUtility" /> 
+            </portlet-app>
+        </web-app>
+    </portal>
+</request>
