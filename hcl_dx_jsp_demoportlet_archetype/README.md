@@ -21,7 +21,7 @@ With this custom archetype it is possible to generate easily a ready to use HCL 
 ### Prerequistes to create an HCL DX JSP Demo Portlet
 
 * Maven needs to be installed ([Download link](https://maven.apache.org/download.cgi))  
-* Java 1.8 needs to be installed. At best an IBM SDK that is shipped with the IBM Websphere Application Server. For details, please check: [System Requirements](https://support.hcltechsw.com/csm?id=kb_article&sysparm_article=KB0090156)  
+* Java 1.8 needs to be installed. At best an IBM SDK that is shipped with the IBM Websphere Application Server. For details, please check: [System Requirements](https://help.hcl-software.com/digital-experience/9.5/latest/get_started/system_requirements/traditional/supported_config/#java-sdk)  
 * This archetype needs to be installed in Maven  
 
 ### Prerequistes to use an HCL DX JSP Demo Portlet with Visual Studio Code
