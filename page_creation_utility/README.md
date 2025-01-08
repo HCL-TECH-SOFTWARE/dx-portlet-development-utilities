@@ -70,7 +70,7 @@ There are two options available to deploy this application. Using the dxclient t
 
 ### DXClient Deployment
 
-You may want to use the **DXClient** to deploy this sample portlet. This repository already contain a ready-to-use [DeployPortlet.xml](https://opensource.hcltechsw.com/digital-experience/latest/deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/adxmltsk_creat_mod_resrcs/?h=deployportlet.xml) file in the deploy folder that contain all xml required information for the DX-environment to deploy the portlet. Please use the following steps to deploy the portlet with the dx-client tool:  
+You may want to use the **DXClient** to deploy this sample portlet. This repository already contain a ready-to-use [DeployPortlet.xml](https://help.hcl-software.com/digital-experience/9.5/latest/deployment/manage/portal_admin_tools/xml_config_interface/working_xml_config_interface/using_xml_config_cmd_line/adxmltsk_creat_mod_resrcs/?h=creating+modifying+resources+and) file in the deploy folder that contain all xml required information for the DX-environment to deploy the portlet. Please use the following steps to deploy the portlet with the dx-client tool:  
 
 1. copy the war file from the **target** directory to the **deploy** folder.
 
@@ -118,5 +118,5 @@ Here an screenshot as an example, when the portlet will be added on a new sibbli
 
 ## Related Documents
 
-To learn how to develop Java Portlets, you may use [Help Center Portlet Development](https://opensource.hcltechsw.com/digital-experience/CF223/extend_dx/portlets_development/).
-For details on APIs used in the utility.java, refer to the following links: [Controller SPI](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/apis/controller_spi/) and [Model SPI](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/apis/model_spi/).  
+To learn how to develop Java Portlets, you may use [Help Center Portlet Development](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/portlets_development/).
+For details on APIs used in the utility.java, refer to the following links: [Controller SPI](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/controller_spi/) and [Model SPI](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/model_spi/).  

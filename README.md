@@ -32,9 +32,9 @@ Maven Archetypes can be easily used within IDEs like Visual Studio Code, Eclipse
 
 ## Product Documentation - Help Center
 
-[Developing portlets](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/portlets_development)
+[Developing portlets](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/portlets_development/?h=developing+portlets)
 
-[Application Programming Interfaces (APIs)](https://opensource.hcltechsw.com/digital-experience/latest/extend_dx/apis/)
+[Application Programming Interfaces (APIs)](https://help.hcl-software.com/digital-experience/9.5/latest/extend_dx/apis/?h=apis)
 
 ## HCLSoftware U - Free Education
 
